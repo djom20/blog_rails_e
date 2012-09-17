@@ -7,7 +7,7 @@ class Article < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments, dependent: :destroy
 	has_many :categorizations
-	has_many :categories, through: :categorizations
+	has_many :categories, through: :categorizations, dependent: :destroy
 	def category_list=(categories_string)
 		self.categorizations.destroy_all
 		category_names =categories_string.split(",").collect{|s| s.strip.downcase}.uniq
