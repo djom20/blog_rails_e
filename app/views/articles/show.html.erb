@@ -1,26 +1,24 @@
 <p id="notice"><%= notice %></p>
+<article class='post'>
+	<hgroup>
+	  <h2><%= @article.title %></h2>
+	</hgroup>
+	<p>
+		<% if @article.has_photo? %>
+		<%= image_tag @article.photo_path, class: 'img-article'%>
+		<% else %>
+			No photo
+		<% end %>
+	</p>
+	<p id='article-body'>
+	  <%= @article.body.html_safe %>
+	</p>
 
-<p>
-  <b>Title:</b>
-  <%= @article.title %>
-</p>
-<p>
-	<b>Image:</b>
-	<% if @article.has_photo? %>
-	<%= image_tag @article.photo_path %>
-	<% else %>
-		No photo
-	<% end %>
-</p>
-<p>
-  <b>Body:</b>
-  <%= @article.body %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @article.user.username %>
-</p>
+	<p>
+	  <b>Autor:</b>
+	  <%= @article.user.username %>
+	</p>
+</article>
 <h4>Comentarios</h4>
 <section id='comments'>
 	<% @article.comments.each do |comment| %>
