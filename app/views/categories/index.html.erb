@@ -1,0 +1,12 @@
+<header class='page-header'>
+	<h1>Categories</h1>
+</header>
+<section id='articles_index' class='row-fluid'>
+	<% @categories.each do |category| %>
+	<article class=' article'>
+		<hgroup>
+			<h2><%= category.name %></h2>
+		</hgroup>		
+	</article>
+	<% end %>
+</section>

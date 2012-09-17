@@ -1,0 +1,23 @@
+<header class='page-header'>
+	<h1><%= @category.name %></h1>
+</header>
+<section id='articles_index' class='row-fluid'>
+	<% @category.articles.each do |article| %>
+	<article class=' article'>
+		<hgroup>
+			<h2><%= article.title%></h2>
+		</hgroup>
+		<p><%= truncate(article.body, :length => 120, :separator => ' ') %></p>
+		<%= link_to 'Leer más', article %> | <%= time_ago_in_words(article.created_at)+' ago'  %>
+		<% if current_user %>
+			<% if article.user.id == current_user.id || current_user.id == 1 %>
+				<span class='admin'>
+
+					<%= link_to 'Editar', edit_article_path(article) %>
+					<%= link_to 'Borrar', article, method: :delete, data: {confirm: "¿Quieres eliminar éste artículo?"} %>
+				</span>
+			<% end %>
+		<% end %>			
+	</article>
+	<% end %>
+</section>

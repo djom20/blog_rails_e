@@ -1,0 +1,33 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.article{
+	border-bottom:solid 1px #CCC;
+	padding:5px 0px;
+	margin-top: 10px;
+	width: 40%;
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-o-transition: all 0.4s;
+}
+.article:nth-child(even)
+{
+	margin-left: 10%;
+}
+.article .admin
+{
+	opacity: 0.0;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-o-transition: all 0.4s;
+}
+.article:hover
+{
+	background-color: rgb(240,240,240);
+}
+.article:hover .admin
+{
+	opacity: 1;
+}

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @article.title %>
+</p>
+<p>
+	<b>Image:</b>
+	<% if @article.has_photo? %>
+	<%= image_tag @article.photo_path %>
+	<% else %>
+		No photo
+	<% end %>
+</p>
+<p>
+  <b>Body:</b>
+  <%= @article.body %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @article.user.username %>
+</p>
+<h4>Comentarios</h4>
+<section id='comments'>
+	<% @article.comments.each do |comment| %>
+	<article>
+		<p><%= comment.body %></p>
+	</article>
+	<% end %>
+</section>
+<p>Categories: <%= category_links(@article.categories)%></p>
+<%= link_to 'Back', articles_path %>
+
+<%= form_for (@comment) do |f| %>
+
+<%= f.hidden_field :article_id %>
+<p>
+	<%= f.label :body, 'Comenta' %>
+	<%= f.text_field :body %>
+	<%= f.submit 'Send' %>
+</p>
+<% end %>
