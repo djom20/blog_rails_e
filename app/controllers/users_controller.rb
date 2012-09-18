@@ -9,10 +9,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def edit
-    if @current_user
-      @user = User.find(params[:id])
+    if current_user && (current_user.id == params[:id] || current_user.id == 1 )
+        @user = User.find(params[:id])
     else
-      redirect_to root_url, :notice => "Acceso denegado"
+        redirect_to root_url, :notice => "Acceso denegado"
     end
   end
   def update
