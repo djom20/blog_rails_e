@@ -7,7 +7,7 @@
 		<hgroup>
 			<h2><%= article.title%></h2>
 		</hgroup>
-		<p><%= truncate(article.body, :length => 120, :separator => ' ') %></p>
+		<p><%= sanitize truncate(article.body, :length => 120, :separator => ' ') %></p>
 		<%= link_to 'Leer más', article %> | <%= time_ago_in_words(article.created_at)+' ago'  %>
 	</article>
 	<% end %>

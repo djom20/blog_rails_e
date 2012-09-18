@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :title, use: :slugged
+    validates_presence_of :title, :body
 	after_save :store_image
 	PHOTO_STORE = File.join Rails.root, 'public', 'photo_store'
 	attr_accessible :title, :body,:photo, :category_list
