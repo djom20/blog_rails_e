@@ -18,6 +18,10 @@
     <%= f.text_field :email, :autocomplete=>'off' %>
   </div>
   <div class="field">
+    <%= f.label :about %>
+    <%= f.text_area :about, style: 'height:150px;' %>
+  </div>
+  <div class="field">
     <%= f.label :password %>
     <%= f.password_field :password, :autocomplete=>'off' %>
   </div>
