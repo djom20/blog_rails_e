@@ -9,8 +9,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def edit
+<<<<<<< Updated upstream
     if current_user && (current_user.id == params[:id] || current_user.id == 1 )
         @user = User.find(params[:id])
+=======
+    if @current_user
+      @user = User.find(params[:id])
+
+20120902170814_add_article_id_to_comments.rb
+>>>>>>> Stashed changes
     else
         redirect_to root_url, :notice => "Acceso denegado"
     end
