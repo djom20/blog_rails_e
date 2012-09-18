@@ -17,7 +17,7 @@
 					<% if current_user %>
 						<li><%= link_to 'Nuevo artículo', new_article_path%></li>
 						<li><%= link_to "log out #{current_user.username}", logout_path %></li>
-                        <li><%= link_to 'Editar', edit_user_path(current_user) %></li>
+                        <li><%= link_to 'Editar tu usuario', edit_user_path(current_user) %></li>
 					<% else %>
 						<li><%= link_to 'log in', login_path %></li>
 						<li><%= link_to 'Sign up', signup_path %></li>
