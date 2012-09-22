@@ -1,6 +1,33 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@function shadows($color,$lim:6){
+	$cadena: "";
+	@for $i from 1 through $lim{
+		$str : $i+"px 1px 3px "+(darken($color,percentage($i*4/100)));
+		@if $i == $lim
+		{
+			$cadena: $cadena + $str;
+		}
+		@else
+		{
+			$cadena: $cadena + $str + ",";	
+		}
+	}
+	@return unquote($cadena);
+}
+$i : #4eb3d1;
+.navbar,.navbar-inner,.navbar-inner .container
+{
+	border-radius: 0px;
+}
+.page-header h1
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 50px;
+	color: $i;
+	text-shadow:shadows($i,6),14px 1px 7px rgba(0,0,0,0.5);
+}
 .article{
 	border-bottom:solid 1px #CCC;
 	padding:5px 0px;
