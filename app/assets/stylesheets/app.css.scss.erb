@@ -1,0 +1,95 @@
+@mixin clean 
+{
+	margin: 0px;
+	padding: 0px;
+}
+@function shadows($color,$lim:6){
+	$cadena: "";
+	@for $i from 1 through $lim{
+		$str : $i+"px 1px 1px "+(darken($color,percentage($i*4/100)));
+		@if $i == $lim
+		{
+			$cadena: $cadena + $str;
+		}
+		@else
+		{
+			$cadena: $cadena + $str + ",";	
+		}
+	}
+	@return unquote($cadena);
+}
+body
+{
+	margin: 0px;
+	background: url(<%= asset_path('back.png') %>), repeat;
+	font-family: 'Open Sans', sans-serif;
+	color:#000;
+}
+.navbar,navbar-inner
+{
+	@include clean;
+	width: 100%;
+	text-align: left;
+}
+a
+{
+	color: #4eb3d1;
+}
+.nav
+{
+	@include clean;
+	text-align: center;
+	width: 900px;
+	margin:0 auto;
+}
+.navbar-inner .container .nav li,
+{
+	margin: 5px 0px;
+	padding: 10px 10px;
+	display: inline-block;
+	vertical-align: middle;
+	color:#FFF;
+	background-color: #4eb3d1;
+	a
+	{
+		color: #FFF;
+		text-decoration: none;
+	}
+	&:hover
+	{
+		color:#4eb3d1;
+	}
+}
+#main
+{
+	width: 900px;
+	margin: 0 auto;
+}
+#body
+{
+	box-sizing:border-box;
+	width: 1024px;
+	margin: 0 auto;
+	.sidebar{
+		margin-top: 150px;
+		vertical-align: top;
+		width: 20%;
+		display: inline-block;
+		.nav li
+		{
+			background-color: #4eb3d1;
+			color: #FFF;
+			display: block;
+			width: 150px;
+			height: 50px;
+			a{
+				color: #FFF;
+				margin: 5px;
+			}
+		}
+	}
+	.container{
+		width: 79%;
+		display: inline-block;
+	}
+}

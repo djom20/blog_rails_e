@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
+	layout 'index_layout'
 	def index
-		@articles = Article.limit(4)
+		@articles = Article.order("created_at desc").limit(4)
 	end
 end

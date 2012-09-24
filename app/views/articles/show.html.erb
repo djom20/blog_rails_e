@@ -19,15 +19,10 @@
 	  <%= @article.user.username %>
 	</p>
 </article>
-<h4>Comentarios</h4>
-<section id='comments'>
-	<% @article.comments.each do |comment| %>
-	<article>
-		<p><%= comment.body %></p>
-	</article>
-	<% end %>
-</section>
 <p>Categories: <%= category_links(@article.categories)%></p>
+<section id='comments'>
+	<%= render 'comments' %>
+</section>
 <%= link_to 'Back', articles_path %>
 
 <%= form_for (@comment) do |f| %>

@@ -4,7 +4,7 @@
 @function shadows($color,$lim:6){
 	$cadena: "";
 	@for $i from 1 through $lim{
-		$str : $i+"px 1px 3px "+(darken($color,percentage($i*4/100)));
+		$str : $i+"px 1px 1px "+(darken($color,percentage($i*4/100)));
 		@if $i == $lim
 		{
 			$cadena: $cadena + $str;
@@ -16,17 +16,16 @@
 	}
 	@return unquote($cadena);
 }
+
 $i : #4eb3d1;
-.navbar,.navbar-inner,.navbar-inner .container
-{
-	border-radius: 0px;
-}
+
 .page-header h1
 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 50px;
 	color: $i;
-	text-shadow:shadows($i,6),14px 1px 7px rgba(0,0,0,0.5);
+	text-shadow:shadows($i,6),14px 1px 7px rgba(0,0,0,0.8);
+	border-bottom: solid 1px #CCC;
 }
 .article{
 	border-bottom:solid 1px #CCC;
@@ -36,27 +35,65 @@ $i : #4eb3d1;
 	display: inline-block;
 	vertical-align: middle;
 	-webkit-transition: all 0.4s;
-	-moz-transition: all 0.4s;
-	-o-transition: all 0.4s;
+	-moz-transition: all .4s;
+	-o-transition: all .4s;
+	&:nth-child(even)
+	{
+		margin-left: 10%;
+	}
+	.admin
+	{
+		opacity: 0.0;
+		-webkit-transition: all 0.4s;
+		-moz-transition: all 0.4s;
+		-o-transition: all 0.4s;
+	}
+	.img-article
+	{
+		position: relative;
+		z-index: -2;
+		top: -150px;
+		opacity: 0.1;
+		-webkit-transition: all 2s;
+		-moz-transition: all 2s;
+		-o-transition: all 2s;
+	}
+	&:hover
+	{
+		background: inherit;
+		text-shadow:2px 2px 5px #000;
+		.admin
+		{
+			font-weight: bolder;
+			opacity: 1;
+			a
+			{
+				padding: 2px;
+				border-radius: 5px;
+				background-color: rgba(0,0,0,0.6);	
+			}
+			
+		}
+		.img-article
+		{
+			opacity: 0.4;
+		}
+	}
+
 }
-.article:nth-child(even)
+#articles_index
 {
-	margin-left: 10%;
-}
-.article .admin
-{
-	opacity: 0.0;
-	-webkit-transition: all 0.4s;
-	-moz-transition: all 0.4s;
-	-o-transition: all 0.4s;
-}
-.article:hover
-{
-	background-color: rgb(240,240,240);
-}
-.article:hover .admin
-{
-	opacity: 1;
+	.article
+	{
+		height: 180px;
+		overflow: hidden;
+	}
+	.img-article
+	{
+		max-width: 100%;
+		max-height: 400px;
+	}
+	
 }
 .img-article
 {
@@ -65,9 +102,26 @@ $i : #4eb3d1;
 }
 .post
 {
-	text-align:center;
+	text-align:left;
 }
-#article_body
+
+#article-body
 {
+	text-align: left;
 	width:100%;
+}
+#comments
+{
+	border-top: solid 1px #CCC;
+}
+.comment_art
+{
+	padding: 7px 0px;
+	margin: 1px 0px;
+	color: #000;
+	background: #FFF;
+}
+.del_com
+{
+	
 }

@@ -12,11 +12,13 @@
 		<% if current_user %>
 			<% if article.user.id == current_user.id || current_user.id == 1 %>
 				<span class='admin'>
-
 					<%= link_to 'Editar', edit_article_path(article) %>
 					<%= link_to 'Borrar', article, method: :delete, data: {confirm: "¿Quieres eliminar éste artículo?"} %>
 				</span>
 			<% end %>
+		<% end %>
+		<% if article.has_photo? %>
+			<%= image_tag article.photo_path, class: 'img-article'%>
 		<% end %>			
 	</article>
 	<% end %>

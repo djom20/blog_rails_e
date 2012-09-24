@@ -1,0 +1,12 @@
+<h4>Comentarios</h4>
+	<% @article.comments.take_while { |i| i.body? }.each do |comment| %>
+	<article class='comment_art'>
+		<% if comment.article.user.id == current_user.id || current_user.id == 1 %>
+				<span class='admin'>
+					<%= comment.body %> <%= link_to "x", comment, method: :delete, data: {confirm: "¿Quieres eliminar éste comentario?"},class: "del_com" %>
+				</span>
+		<% else %>
+			<p><%= comment.body %></p>
+		<% end %>
+	</article>
+	<% end %>
