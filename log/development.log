@@ -61585,3 +61585,32 @@ Served asset /users.js - 304 Not Modified (0ms)
 
 Started GET "/assets/wysihtml5-0.3.0.js?body=1" for 127.0.0.1 at 2012-09-18 13:51:27 -0500
 Served asset /wysihtml5-0.3.0.js - 304 Not Modified (0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateArticles (20120902000602)
+Migrating to CreateUsers (20120902000731)
+Migrating to CreateComments (20120902163624)
+Migrating to CreateAuthors (20120903003844)
+Migrating to DropUsers (20120903025450)
+Migrating to SorceryCore (20120903025917)
+Migrating to SorceryRememberMe (20120903025918)
+Migrating to AddPhotoExtensionToArticle (20120906131311)
+Migrating to CreateCategories (20120907164637)
+Migrating to CreateCategorizations (20120907164731)
+Migrating to CreateSlugs (20120916235333)
+Migrating to AddCachedSlugToArticles (20120916235549)
+Migrating to AddSlugToCategories (20120917001835)
+Migrating to AddAboutToUsers (20120918184940)
+  [1m[35m (0.6ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("articles")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_articles_on_slug')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("authors")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_categories_on_slug')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("categorizations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("comments")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("slugs")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_slugs_on_n_s_s_and_s')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_slugs_on_sluggable_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_remember_me_token')[0m
