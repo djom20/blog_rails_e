@@ -19,12 +19,23 @@
 	}
 	@return unquote($cadena);
 }
+$amarillo : #e7dc01;
+$azul: #425c87;
 body
 {
 	margin: 0px;
-	background: url(<%= asset_path('back.png') %>), repeat;
+	background: url(<%= asset_path('fondo.png') %>) no-repeat, url(<%= asset_path('back.png') %>) repeat;
+	background-size: 100%;
 	font-family: 'Open Sans', sans-serif;
 	color:#000;
+}
+h2
+{
+	color: $azul;
+}
+.logo
+{
+	width:80%;
 }
 .navbar,navbar-inner
 {
@@ -34,7 +45,7 @@ body
 }
 a
 {
-	color: #4eb3d1;
+	color: #999;
 }
 .nav
 {
@@ -50,7 +61,7 @@ a
 	display: inline-block;
 	vertical-align: middle;
 	color:#FFF;
-	background-color: #4eb3d1;
+	background-color: #999;
 	a
 	{
 		color: #FFF;
@@ -58,7 +69,7 @@ a
 	}
 	&:hover
 	{
-		color:#4eb3d1;
+		color:$amarillo;
 	}
 }
 #main
@@ -78,8 +89,7 @@ a
 		display: inline-block;
 		.nav li
 		{
-			background-color: #4eb3d1;
-			color: #FFF;
+			background-color: #999;
 			display: block;
 			width: 150px;
 			height: 50px;
